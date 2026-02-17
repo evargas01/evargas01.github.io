@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#0b1220" name="theme-color"/>
+<title>Eduardo Vargas | Cyber Security Analyst JR</title>
+<meta content="Eduardo Vargas — Cyber Security Analyst JR. Security Operations, Vulnerability Management, System Hardening. Certifications: CompTIA Security+ (SY0-701), Google Cybersecurity Professional Certificate." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&amp;family=JetBrains+Mono:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet">
+</link></head>
+<body>
+<!-- Matrix background -->
+<canvas aria-hidden="true" id="matrix"></canvas>
+<div aria-hidden="true" class="vignette"></div>
+<div aria-hidden="true" class="scanlines"></div>
+<!-- Top nav -->
+<header class="topbar">
+<a aria-label="Go to Home" class="brand" href="#home">
+<span class="brand__dot"></span>
+<span class="brand__text">Eduardo Vargas</span>
+</a>
+<nav aria-label="Primary navigation" class="nav">
+<a href="#about">About</a>
+<a href="#certifications">Certifications</a>
+<a href="#skills">Skills</a>
+<a href="#education">Education</a>
+<a href="#projects">Projects</a>
+<a class="nav__cta" href="#contact">Contact</a>
+</nav>
+<button aria-expanded="false" aria-label="Open menu" class="navToggle" id="navToggle">
+<span></span><span></span><span></span>
+</button>
+</header>
+<main>
+<!-- HERO -->
+<section class="section hero" id="home">
+<div class="hero__grid">
+<div class="hero__card glass">
+<div class="identity">
+<div aria-label="Eduardo Vargas avatar" class="avatar" role="img"><img alt="Eduardo Vargas portrait" class="avatarImg" src="assets/profile.jpg"/></div>
+<div class="identity__text">
+<h1 class="glowTitle">Eduardo Vargas</h1>
+<p class="subtitle">Cyber Security Analyst JR</p>
+<div aria-label="Quick tags" class="pillRow" role="list">
+<span class="pill" role="listitem">📍 United Kingdom</span>
+<span class="pill" role="listitem">🛡️ Security Operations</span>
+<span class="pill" role="listitem">🧪 Vulnerability Management</span>
+<span class="pill" role="listitem">🧱 System Hardening</span>
+</div>
+<div class="hero__actions">
+<a class="btn btn--primary" href="#certifications">View Certifications</a>
+<a class="btn" href="#projects">View Projects</a>
+</div>
+</div>
+</div>
+<div class="terminal">
+<div class="terminal__top">
+<span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+<span class="terminal__title">~/profile/summary.sh</span>
+</div>
+<pre class="terminal__body"><code id="typewriter"></code></pre>
+</div>
+</div>
+<aside class="hero__side">
+<div class="stat glass">
+<div class="stat__label">Certifications</div>
+<div class="stat__value">2</div>
+<div class="stat__hint">Security+ + Google Cybersecurity</div>
+</div>
+<div class="stat glass">
+<div class="stat__label">Focus Areas</div>
+<div class="stat__value">SecOps</div>
+<div class="stat__hint">Monitoring • Triage • Hardening</div>
+</div>
+<div class="stat glass">
+<div class="stat__label">Tooling</div>
+<div class="stat__value">SIEM</div>
+<div class="stat__hint">Logs • Alerts • Investigation</div>
+</div>
+<div class="note glass">
+<div class="note__title">Signal over noise</div>
+<p class="note__text">I prioritize actionable findings: severity, exposure, exploitability, and business impact.</p>
+</div>
+</aside>
+</div>
+</section>
+<!-- ABOUT -->
+<section class="section" id="about">
+<div class="section__head">
+<h2>About</h2>
+<p>Operational mindset, strong attention to detail, and clear communication with technical teams.</p>
+</div>
+<div class="grid2">
+<article class="card glass">
+<h3>Profile</h3>
+<p>
+            Cybersecurity Analyst with a foundation in <strong>Security Operations</strong>, <strong>vulnerability management</strong>, and
+            <strong>system hardening</strong>. Experience in regulated environments in the United Kingdom, with a risk-focused approach and structured reporting.
+          </p>
+</article>
+<article class="card glass">
+<h3>What I’m aiming for</h3>
+<ul class="checklist">
+<li>Security Operations (SOC) monitoring, alert triage, and incident handling</li>
+<li>Vulnerability assessment, prioritization, and remediation follow-up</li>
+<li>Hardening guidance for Windows/Linux systems and network controls</li>
+</ul>
+</article>
+</div>
+</section>
+<!-- CERTIFICATIONS -->
+<section class="section" id="certifications">
+<div class="section__head">
+<h2>Certifications</h2>
+<p>Key learnings and applied experience from training and labs.</p>
+</div>
+<div class="grid2">
+<article class="card glass">
+<div class="badgeRow">
+<span class="badge">CompTIA</span>
+<span class="badge badge--soft">Security+</span>
+</div>
+<h3>CompTIA Security+ (SY0-701)</h3>
+<p class="muted">Coverage highlights</p>
+<div class="chips">
+<span class="chip">General Security Concepts</span>
+<span class="chip">Threats</span>
+<span class="chip">Vulnerabilities &amp; Mitigations</span>
+<span class="chip">Security Architecture</span>
+<span class="chip">Security Operations</span>
+<span class="chip">Security Program Management</span>
+</div>
+</article>
+<article class="card glass">
+<div class="badgeRow">
+<span class="badge">Google</span>
+<span class="badge badge--soft">Cybersecurity</span>
+</div>
+<h3>Google Cybersecurity Professional Certificate</h3>
+<p class="muted">Hands-on learning and applied practice</p>
+<ul class="bullets">
+<li>Executing vulnerability scans in controlled environments</li>
+<li>Analyzing results, manual validation, and identifying false positives</li>
+<li>Prioritization based on severity, exposure, system criticality, and business impact</li>
+<li>Simulating remediation processes and post-fix validation</li>
+<li>Producing structured technical reports with clear recommendations</li>
+<li>Analyzing CVEs (Common Vulnerabilities and Exposures) and assessing applicability</li>
+</ul>
+</article>
+</div>
+<article class="card glass mt">
+<h3>Simulated scenario (example)</h3>
+<p>
+          Identified a critical vulnerability on an exposed service. Performed manual validation of the affected version,
+          communicated the issue, recommended patching or temporary mitigation (firewall/isolation), and executed post-remediation validation.
+          This practical training reinforced a realistic <strong>vulnerability management lifecycle</strong>.
+        </p>
+</article>
+</section>
+<!-- SKILLS -->
+<section class="section" id="skills">
+<div class="section__head">
+<h2>Skills</h2>
+<p>Hard skills and soft skills — focused on what matters for a junior cybersecurity role.</p>
+</div>
+<div class="grid2">
+<article class="card glass">
+<h3>Hard skills</h3>
+<div class="chips">
+<span class="chip">Vulnerability Management</span>
+<span class="chip">CVSS (Common Vulnerability Scoring System)</span>
+<span class="chip">Windows/Linux Hardening</span>
+<span class="chip">Security Operations (SecOps)</span>
+<span class="chip">Threat &amp; Risk Management</span>
+<span class="chip">ISO 27001 (Information Security Standard)</span>
+<span class="chip">NIST CSF (Cybersecurity Framework)</span>
+<span class="chip">TCP/IP</span>
+<span class="chip">DNS</span>
+<span class="chip">HTTP/HTTPS</span>
+<span class="chip">Firewalls</span>
+<span class="chip">VPN</span>
+<span class="chip">SOC Fundamentals</span>
+<span class="chip">Alert Triage</span>
+<span class="chip">Log Analysis</span>
+<span class="chip">Linux</span>
+<span class="chip">Wireshark</span>
+<span class="chip">SIEM (Security Information and Event Management) — intro</span>
+<span class="chip">SQL (for analysis)</span>
+<span class="chip">Python (basic automation)</span>
+<span class="chip">Technical Documentation</span>
+<span class="chip">Structured Reporting</span>
+<span class="chip">Security Metrics</span>
+<span class="chip">Multilingual (Portuguese/English)</span>
+</div>
+</article>
+<article class="card glass">
+<h3>Soft skills</h3>
+<div class="chips">
+<span class="chip chip--soft">Effective Communication</span>
+<span class="chip chip--soft">Active Listening</span>
+<span class="chip chip--soft">Continuous Learning</span>
+<span class="chip chip--soft">Critical Thinking</span>
+<span class="chip chip--soft">Open-mindedness</span>
+<span class="chip chip--soft">Adaptability</span>
+<span class="chip chip--soft">Conflict Resolution</span>
+<span class="chip chip--soft">Negotiation Skills</span>
+<span class="chip chip--soft">Project Management</span>
+<span class="chip chip--soft">Time Management</span>
+<span class="chip chip--soft">Problem Solving</span>
+<span class="chip chip--soft">Attention to Detail</span>
+<span class="chip chip--soft">Analytical Mindset</span>
+<span class="chip chip--soft">Teamwork</span>
+<span class="chip chip--soft">Ownership &amp; Responsibility</span>
+<span class="chip chip--soft">Work Under Pressure</span>
+<span class="chip chip--soft">Information Organisation</span>
+<span class="chip chip--soft">Technical Curiosity</span>
+<span class="chip chip--soft">Proactivity</span>
+</div>
+</article>
+</div>
+</section>
+<!-- EDUCATION -->
+<section class="section" id="education">
+<div class="section__head">
+<h2>Education</h2>
+<p>Solid technical foundation aligned to cybersecurity fundamentals.</p>
+</div>
+<article class="card glass">
+<div class="eduTop">
+<div>
+<h3>Unicesumar — Higher Education in Systems Analysis and Development</h3>
+<p class="muted">Brazil / UK • 2020–2024</p>
+</div>
+<span class="eduTag">Tech foundation</span>
+</div>
+<p class="muted">Key areas covered</p>
+<ul class="bullets bullets--cols">
+<li>Computer Networks (TCP/IP, DNS, HTTP)</li>
+<li>Windows and Linux Operating Systems</li>
+<li>Programming logic and languages (Java, Python, SQL)</li>
+<li>Relational databases</li>
+<li>Systems architecture</li>
+<li>Software development</li>
+<li>Basic automation</li>
+<li>IT best practices and information security</li>
+</ul>
+<p>
+          This education strengthened my understanding of infrastructures, applications, and how security risks appear across systems.
+        </p>
+</article>
+</section>
+<!-- PROJECTS -->
+<section class="section" id="projects">
+<div class="section__head">
+<h2>Projects</h2>
+<p>Live demos, labs, and write-ups. (Add your GitHub projects here.)</p>
+</div>
+<div class="grid3">
+<article class="card glass project">
+<h3>Vulnerability Triage Playbook</h3>
+<p class="muted">Template + workflow</p>
+<p>Create a repeatable process to prioritize findings using severity, exposure, exploitability, and business impact.</p>
+<a class="link" href="#" onclick="return false;">Add repo link →</a>
+</article>
+<article class="card glass project">
+<h3>Log Investigation Notes</h3>
+<p class="muted">SIEM practice</p>
+<p>Short write-ups on log patterns, alert triage, and basic incident investigation steps.</p>
+<a class="link" href="#" onclick="return false;">Add repo link →</a>
+</article>
+<article class="card glass project">
+<h3>Hardening Checklist</h3>
+<p class="muted">Windows/Linux</p>
+<p>Practical baseline checklist: accounts, patching, services, firewall rules, and audit logging.</p>
+<a class="link" href="#" onclick="return false;">Add repo link →</a>
+</article>
+</div>
+
+</section>
+<!-- CONTACT -->
+<section class="section" id="contact">
+<div class="section__head">
+<h2>Contact</h2>
+<p>Let’s connect — I respond quickly and communicate clearly.</p>
+</div>
+<div class="grid2 grid2--single">
+<article class="card glass">
+<h3>Details</h3>
+<div class="contactList">
+<a class="contactItem" href="mailto:eduardo12vargas11@gmail.com">
+<span class="k">Email</span><span class="v">eduardo12vargas11@gmail.com</span>
+</a>
+
+
+<div class="contactItem">
+<span class="k">Location</span><span class="v">United Kingdom</span>
+</div>
+</div>
+</article>
+
+</div>
+</section>
+<footer class="footer">
+<div class="footer__inner">
+<span>© <span id="year"></span> Eduardo Vargas</span>
+<span class="sep">•</span>
+<span class="mono">Built with HTML + CSS + JS</span>
+</div>
+</footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
