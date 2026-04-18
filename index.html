@@ -1,317 +1,470 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="#0b1220" name="theme-color"/>
-<title>Eduardo Vargas | Cyber Security Analyst JR</title>
-<meta content="Eduardo Vargas — Cyber Security Analyst JR. Security Operations, Vulnerability Management, System Hardening. Certifications: CompTIA Security+ (SY0-701), Google Cybersecurity Professional Certificate." name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&amp;family=JetBrains+Mono:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css" rel="stylesheet">
-</link></head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eduardo Vargas · Cyber Security Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --bg:#000;--bg2:#0a0a0a;
+  --cyan:#00f2ff;--blue:#0077ff;
+  --white:#f5f5f7;--grey:#86868b;
+}
+body{background:var(--bg);color:var(--white);font-family:'Inter',-apple-system,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+#matrix{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.35;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:52px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.nav-logo{font-size:17px;font-weight:600;color:var(--white);text-decoration:none;}
+.nav-links{display:flex;gap:8px;list-style:none;}
+.nav-links a{font-size:13px;color:rgba(245,245,247,.7);text-decoration:none;padding:6px 12px;border-radius:6px;transition:color .2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{font-size:13px;font-weight:500;padding:7px 16px;border-radius:980px;background:var(--cyan);color:#000;text-decoration:none;}
+
+#hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 0;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase;padding:7px 18px;border-radius:980px;border:1px solid rgba(0,242,255,0.3);background:rgba(0,242,255,0.08);margin-bottom:32px;opacity:0;animation:up .7s .1s forwards;}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.4);}}
+.photo-wrap{margin-bottom:24px;opacity:0;animation:up .7s .2s forwards;}
+.photo-ring{position:relative;display:inline-block;width:100px;height:100px;}
+.photo-ring::before{content:'';position:absolute;inset:-2px;border-radius:50%;background:conic-gradient(from 0deg,var(--cyan),var(--blue),rgba(0,242,255,.1),var(--cyan));animation:spin 5s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.photo-ring img{position:relative;z-index:1;width:100px;height:100px;border-radius:50%;object-fit:cover;border:2px solid #000;display:block;}
+.hero-name{font-size:clamp(60px,9vw,112px);font-weight:700;letter-spacing:-4px;line-height:.9;color:#fff;opacity:0;animation:up .8s .3s forwards;}
+.hero-role{font-size:clamp(18px,2.5vw,26px);font-weight:400;color:var(--grey);margin:18px 0 0;opacity:0;animation:up .7s .45s forwards;}
+.hero-role a{color:var(--cyan);text-decoration:none;}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:28px 0 36px;opacity:0;animation:up .7s .55s forwards;}
+.htag{font-size:13px;font-weight:500;padding:8px 16px;border-radius:980px;border:1px solid rgba(255,255,255,0.14);color:rgba(245,245,247,.78);background:rgba(255,255,255,.04);}
+.hero-btns{display:flex;gap:12px;justify-content:center;opacity:0;animation:up .7s .65s forwards;margin-bottom:40px;}
+.btn-p{font-size:14px;font-weight:500;padding:13px 28px;border-radius:980px;background:var(--cyan);color:#000;text-decoration:none;transition:all .2s;}
+.btn-p:hover{background:#fff;box-shadow:0 0 32px rgba(0,242,255,.4);}
+.btn-s{font-size:14px;font-weight:500;padding:13px 28px;border-radius:980px;border:1px solid rgba(255,255,255,.2);color:var(--white);text-decoration:none;}
+@keyframes up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+#map-section{position:relative;z-index:1;width:100%;margin-top:-20px;padding:0 0 40px;}
+
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:100px 24px;}
+.sec-eyebrow{font-size:12px;font-weight:700;color:var(--cyan);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;}
+.sec-title{font-size:clamp(36px,5vw,56px);font-weight:700;letter-spacing:-2px;color:#fff;margin-bottom:20px;line-height:1.05;}
+.sec-title em{font-style:normal;color:var(--cyan);}
+.sec-sub{font-size:18px;color:var(--grey);line-height:1.7;max-width:640px;font-weight:300;}
+.sec-sub strong{color:rgba(245,245,247,.8);font-weight:500;}
+.about-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px;background:rgba(255,255,255,.06);border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.06);}
+.about-tile{background:var(--bg2);padding:40px 32px;transition:background .3s;}
+.about-tile:hover{background:#141414;}
+.tile-ico{font-size:28px;margin-bottom:16px;}
+.tile-label{font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:.18em;margin-bottom:8px;}
+.tile-h{font-size:17px;font-weight:600;color:#fff;margin-bottom:10px;}
+.tile-p{font-size:14px;color:var(--grey);line-height:1.75;}
+.tile-p strong{color:rgba(245,245,247,.75);font-weight:500;}
+.role-card{position:relative;background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:56px;overflow:hidden;}
+.role-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--blue),transparent);}
+.role-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;flex-wrap:wrap;gap:16px;}
+.role-title-big{font-size:clamp(30px,4vw,44px);font-weight:700;letter-spacing:-1.5px;color:#fff;margin-bottom:8px;}
+.role-co{display:flex;align-items:center;gap:8px;}
+.role-co a{font-size:14px;font-weight:500;color:var(--cyan);text-decoration:none;}
+.role-co span{font-size:14px;color:var(--grey);}
+.role-live{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;color:var(--cyan);padding:9px 20px;border:1px solid rgba(0,242,255,.25);background:rgba(0,242,255,.08);border-radius:980px;letter-spacing:.08em;}
+.ldot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:blink 1.5s infinite;}
+.role-desc{font-size:16px;color:var(--grey);line-height:1.9;margin-bottom:36px;max-width:660px;font-weight:300;}
+.role-desc strong{color:rgba(245,245,247,.8);font-weight:500;}
+.tasks{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;}
+.task{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#141414;border:1px solid rgba(255,255,255,.05);border-radius:12px;transition:all .2s;}
+.task:hover{border-color:rgba(0,242,255,.2);background:rgba(0,242,255,.05);}
+.ti{font-size:20px;flex-shrink:0;}
+.task-text{display:flex;flex-direction:column;gap:2px;}
+.task-title{font-size:13px;font-weight:500;color:rgba(245,245,247,.85);}
+.task-sub{font-size:11px;color:var(--grey);}
+.certs{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cert{background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:40px;text-decoration:none;display:block;transition:all .3s;position:relative;overflow:hidden;}
+.cert::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--blue));transform:scaleX(0);transition:transform .3s;transform-origin:left;}
+.cert:hover{border-color:rgba(0,242,255,.3);transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.6);}
+.cert:hover::after{transform:scaleX(1);}
+.cert-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
+.cert-badge{width:68px;height:68px;object-fit:contain;filter:drop-shadow(0 0 14px rgba(0,242,255,.25));}
+.cert-verify{font-size:11px;font-weight:600;color:var(--cyan);letter-spacing:.08em;opacity:.55;transition:opacity .2s;}
+.cert:hover .cert-verify{opacity:1;}
+.cert-iss{font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:.2em;margin-bottom:6px;}
+.cert-name{font-size:22px;font-weight:700;color:#fff;margin-bottom:16px;letter-spacing:-.5px;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{font-size:11px;font-weight:500;padding:4px 11px;border-radius:980px;border:1px solid rgba(255,255,255,.1);color:var(--grey);}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.sk-col{background:var(--bg2);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:26px;}
+.sk-title{font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:.2em;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06);}
+.sk-list{display:flex;flex-direction:column;}
+.ski{font-size:12px;color:var(--grey);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.03);display:flex;align-items:center;gap:7px;transition:color .2s;}
+.ski:last-child{border:none;}
+.ski:hover{color:#fff;}
+.skd{width:4px;height:4px;border-radius:50%;background:var(--cyan);flex-shrink:0;opacity:.4;}
+.ski.hi .skd{opacity:1;}
+.ski.hi{color:rgba(245,245,247,.82);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ccard{background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px;display:flex;align-items:center;gap:16px;text-decoration:none;transition:all .3s;}
+.ccard:hover{border-color:rgba(0,242,255,.3);background:#141414;transform:translateY(-2px);}
+.cico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(0,242,255,.08);border:1px solid rgba(0,242,255,.15);font-size:18px;flex-shrink:0;}
+.clbl{font-size:10px;font-weight:700;color:var(--grey);letter-spacing:.12em;margin-bottom:4px;}
+.cval{font-size:14px;font-weight:500;color:#fff;}
+.div{position:relative;z-index:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);margin:0 auto;max-width:980px;}
+footer{position:relative;z-index:1;text-align:center;padding:28px 24px 48px;border-top:1px solid rgba(255,255,255,.06);font-size:12px;color:var(--grey);}
+footer span{color:var(--cyan);}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;}
+.rv.on{opacity:1;transform:translateY(0);}
+@media(max-width:1000px){.about-tiles,.skills-grid{grid-template-columns:1fr 1fr;}.certs,.contact-grid{grid-template-columns:1fr;}}
+@media(max-width:700px){nav{padding:0 16px;}.nav-links{display:none;}.wrap{padding:72px 20px;}.about-tiles,.skills-grid,.certs{grid-template-columns:1fr;}.role-card{padding:28px 20px;}}
+</style>
+</head>
 <body>
-<!-- Matrix background -->
+
 <canvas aria-hidden="true" id="matrix"></canvas>
-<div aria-hidden="true" class="vignette"></div>
-<div aria-hidden="true" class="scanlines"></div>
-<!-- Top nav -->
-<header class="topbar">
-<a aria-label="Go to Home" class="brand" href="#home">
-<span class="brand__dot"></span>
-<span class="brand__text">Eduardo Vargas</span>
-</a>
-<nav aria-label="Primary navigation" class="nav">
-<a href="#about">About</a>
-<a href="#certifications">Certifications</a>
-<a href="#skills">Skills</a>
-<a href="#education">Education</a>
-<a href="#projects">Projects</a>
-<a class="nav__cta" href="#contact">Contact</a>
+
+<nav>
+  <a href="#hero" class="nav-logo">Eduardo Vargas</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#role">Work</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:eduardo12vargas10@gmail.com" class="nav-cta">Contact</a>
 </nav>
-<button aria-expanded="false" aria-label="Open menu" class="navToggle" id="navToggle">
-<span></span><span></span><span></span>
-</button>
-</header>
-<main>
-<!-- HERO -->
-<section class="section hero" id="home">
-<div class="hero__grid">
-<div class="hero__card glass">
-<div class="identity">
-<div aria-label="Eduardo Vargas avatar" class="avatar" role="img"><img alt="Eduardo Vargas portrait" class="avatarImg" src="assets/profile.jpg"/></div>
-<div class="identity__text">
-<h1 class="glowTitle">Eduardo Vargas</h1>
-<p class="subtitle">Cyber Security Analyst JR</p>
-<div aria-label="Quick tags" class="pillRow" role="list">
-<span class="pill" role="listitem">📍 United Kingdom</span>
-<span class="pill" role="listitem">🛡️ Security Operations</span>
-<span class="pill" role="listitem">🧪 Vulnerability Management</span>
-<span class="pill" role="listitem">🧱 System Hardening</span>
-</div>
-<div class="hero__actions">
-<a class="btn btn--primary" href="#certifications">View Certifications</a>
-<a class="btn" href="#projects">View Projects</a>
-</div>
-</div>
-</div>
-<div class="terminal">
-<div class="terminal__top">
-<span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-<span class="terminal__title">~/profile/summary.sh</span>
-</div>
-<pre class="terminal__body"><code id="typewriter"></code></pre>
-</div>
-</div>
-<aside class="hero__side">
-<div class="stat glass">
-<div class="stat__label">Certifications</div>
-<div class="stat__value">2</div>
-<div class="stat__hint">Security+ + Google Cybersecurity</div>
-</div>
-<div class="stat glass">
-<div class="stat__label">Focus Areas</div>
-<div class="stat__value">SecOps</div>
-<div class="stat__hint">Monitoring • Triage • Hardening</div>
-</div>
-<div class="stat glass">
-<div class="stat__label">Tooling</div>
-<div class="stat__value">SIEM</div>
-<div class="stat__hint">Logs • Alerts • Investigation</div>
-</div>
-<div class="note glass">
-<div class="note__title">Signal over noise</div>
-<p class="note__text">I prioritize actionable findings: severity, exposure, exploitability, and business impact.</p>
-</div>
-</aside>
-</div>
+
+<section id="hero">
+  <div class="hero-badge"><span class="hero-badge-dot"></span>Cyber Security Analyst</div>
+  <div class="photo-wrap">
+    <div class="photo-ring">
+      <img src="https://evargas01.github.io/assets/profile.jpg" alt="Eduardo Vargas">
+    </div>
+  </div>
+  <h1 class="hero-name">Eduardo<br>Vargas</h1>
+  <p class="hero-role">Cyber Security Analyst at <a href="https://www.coxautoinc.eu/" target="_blank">Cox Automotive Europe</a></p>
+  <div class="hero-tags">
+    <span class="htag">📍 United Kingdom</span>
+    <span class="htag">🛡️ Security Operations</span>
+    <span class="htag">🔍 Vulnerability Management</span>
+    <span class="htag">🎯 Penetration Testing</span>
+    <span class="htag">☁️ Cloud Security</span>
+  </div>
+  <div class="hero-btns">
+    <a href="#role" class="btn-p">View My Work</a>
+    <a href="#contact" class="btn-s">Contact Me</a>
+  </div>
 </section>
-<!-- ABOUT -->
-<section class="section" id="about">
-<div class="section__head">
-<h2>About</h2>
-<p>Operational mindset, strong attention to detail, and clear communication with technical teams.</p>
-</div>
-<div class="grid2">
-<article class="card glass">
-<h3>Profile</h3>
-<p>
-            Cybersecurity Analyst with a foundation in <strong>Security Operations</strong>, <strong>vulnerability management</strong>, and
-            <strong>system hardening</strong>. Experience in regulated environments in the United Kingdom, with a risk-focused approach and structured reporting.
-          </p>
-</article>
-<article class="card glass">
-<h3>What I’m aiming for</h3>
-<ul class="checklist">
-<li>Security Operations (SOC) monitoring, alert triage, and incident handling</li>
-<li>Vulnerability assessment, prioritization, and remediation follow-up</li>
-<li>Hardening guidance for Windows/Linux systems and network controls</li>
-</ul>
-</article>
-</div>
-</section>
-<!-- CERTIFICATIONS -->
-<section class="section" id="certifications">
-<div class="section__head">
-<h2>Certifications</h2>
-<p>Key learnings and applied experience from training and labs.</p>
-</div>
-<div class="grid2">
-<article class="card glass">
-<div class="badgeRow">
-<span class="badge">CompTIA</span>
-<span class="badge badge--soft">Security+</span>
-</div>
-<h3>CompTIA Security+ (SY0-701)</h3>
-<p class="muted">Coverage highlights</p>
-<div class="chips">
-<span class="chip">General Security Concepts</span>
-<span class="chip">Threats</span>
-<span class="chip">Vulnerabilities &amp; Mitigations</span>
-<span class="chip">Security Architecture</span>
-<span class="chip">Security Operations</span>
-<span class="chip">Security Program Management</span>
-</div>
-</article>
-<article class="card glass">
-<div class="badgeRow">
-<span class="badge">Google</span>
-<span class="badge badge--soft">Cybersecurity</span>
-</div>
-<h3>Google Cybersecurity Professional Certificate</h3>
-<p class="muted">Hands-on learning and applied practice</p>
-<ul class="bullets">
-<li>Executing vulnerability scans in controlled environments</li>
-<li>Analyzing results, manual validation, and identifying false positives</li>
-<li>Prioritization based on severity, exposure, system criticality, and business impact</li>
-<li>Simulating remediation processes and post-fix validation</li>
-<li>Producing structured technical reports with clear recommendations</li>
-<li>Analyzing CVEs (Common Vulnerabilities and Exposures) and assessing applicability</li>
-</ul>
-</article>
-</div>
-<article class="card glass mt">
-<h3>Simulated scenario (example)</h3>
-<p>
-          Identified a critical vulnerability on an exposed service. Performed manual validation of the affected version,
-          communicated the issue, recommended patching or temporary mitigation (firewall/isolation), and executed post-remediation validation.
-          This practical training reinforced a realistic <strong>vulnerability management lifecycle</strong>.
-        </p>
-</article>
-</section>
-<!-- SKILLS -->
-<section class="section" id="skills">
-<div class="section__head">
-<h2>Skills</h2>
-<p>Hard skills and soft skills — focused on what matters for a junior cybersecurity role.</p>
-</div>
-<div class="grid2">
-<article class="card glass">
-<h3>Hard skills</h3>
-<div class="chips">
-<span class="chip">Vulnerability Management</span>
-<span class="chip">CVSS (Common Vulnerability Scoring System)</span>
-<span class="chip">Windows/Linux Hardening</span>
-<span class="chip">Security Operations (SecOps)</span>
-<span class="chip">Threat &amp; Risk Management</span>
-<span class="chip">ISO 27001 (Information Security Standard)</span>
-<span class="chip">NIST CSF (Cybersecurity Framework)</span>
-<span class="chip">TCP/IP</span>
-<span class="chip">DNS</span>
-<span class="chip">HTTP/HTTPS</span>
-<span class="chip">Firewalls</span>
-<span class="chip">VPN</span>
-<span class="chip">SOC Fundamentals</span>
-<span class="chip">Alert Triage</span>
-<span class="chip">Log Analysis</span>
-<span class="chip">Linux</span>
-<span class="chip">Wireshark</span>
-<span class="chip">SIEM (Security Information and Event Management) — intro</span>
-<span class="chip">SQL (for analysis)</span>
-<span class="chip">Python (basic automation)</span>
-<span class="chip">Technical Documentation</span>
-<span class="chip">Structured Reporting</span>
-<span class="chip">Security Metrics</span>
-<span class="chip">Multilingual (Portuguese/English)</span>
-</div>
-</article>
-<article class="card glass">
-<h3>Soft skills</h3>
-<div class="chips">
-<span class="chip chip--soft">Effective Communication</span>
-<span class="chip chip--soft">Active Listening</span>
-<span class="chip chip--soft">Continuous Learning</span>
-<span class="chip chip--soft">Critical Thinking</span>
-<span class="chip chip--soft">Open-mindedness</span>
-<span class="chip chip--soft">Adaptability</span>
-<span class="chip chip--soft">Conflict Resolution</span>
-<span class="chip chip--soft">Negotiation Skills</span>
-<span class="chip chip--soft">Project Management</span>
-<span class="chip chip--soft">Time Management</span>
-<span class="chip chip--soft">Problem Solving</span>
-<span class="chip chip--soft">Attention to Detail</span>
-<span class="chip chip--soft">Analytical Mindset</span>
-<span class="chip chip--soft">Teamwork</span>
-<span class="chip chip--soft">Ownership &amp; Responsibility</span>
-<span class="chip chip--soft">Work Under Pressure</span>
-<span class="chip chip--soft">Information Organisation</span>
-<span class="chip chip--soft">Technical Curiosity</span>
-<span class="chip chip--soft">Proactivity</span>
-</div>
-</article>
-</div>
-</section>
-<!-- EDUCATION -->
-<section class="section" id="education">
-<div class="section__head">
-<h2>Education</h2>
-<p>Solid technical foundation aligned to cybersecurity fundamentals.</p>
-</div>
-<article class="card glass">
-<div class="eduTop">
-<div>
-<h3>Unicesumar — Higher Education in Systems Analysis and Development</h3>
-<p class="muted">Brazil / UK • 2020–2024</p>
-</div>
-<span class="eduTag">Tech foundation</span>
-</div>
-<p class="muted">Key areas covered</p>
-<ul class="bullets bullets--cols">
-<li>Computer Networks (TCP/IP, DNS, HTTP)</li>
-<li>Windows and Linux Operating Systems</li>
-<li>Programming logic and languages (Java, Python, SQL)</li>
-<li>Relational databases</li>
-<li>Systems architecture</li>
-<li>Software development</li>
-<li>Basic automation</li>
-<li>IT best practices and information security</li>
-</ul>
-<p>
-          This education strengthened my understanding of infrastructures, applications, and how security risks appear across systems.
-        </p>
-</article>
-</section>
-<!-- PROJECTS -->
-<section class="section" id="projects">
-<div class="section__head">
-<h2>Projects</h2>
-<p>Live demos, labs, and write-ups. (Add your GitHub projects here.)</p>
-</div>
-<div class="grid3">
-<article class="card glass project">
-<h3>Vulnerability Triage Playbook</h3>
-<p class="muted">Template + workflow</p>
-<p>Create a repeatable process to prioritize findings using severity, exposure, exploitability, and business impact.</p>
-<a class="link" href="#" onclick="return false;">Add repo link →</a>
-</article>
-<article class="card glass project">
-<h3>Log Investigation Notes</h3>
-<p class="muted">SIEM practice</p>
-<p>Short write-ups on log patterns, alert triage, and basic incident investigation steps.</p>
-<a class="link" href="#" onclick="return false;">Add repo link →</a>
-</article>
-<article class="card glass project">
-<h3>Hardening Checklist</h3>
-<p class="muted">Windows/Linux</p>
-<p>Practical baseline checklist: accounts, patching, services, firewall rules, and audit logging.</p>
-<a class="link" href="#" onclick="return false;">Add repo link →</a>
-</article>
+
+<div id="map-section">
+  <div id="map-wrap" style="max-width:980px;margin:0 auto;padding:0 24px;">
+    <div id="mw" style="width:100%;background:#020c18;border-radius:16px;overflow:hidden;position:relative;border:1px solid rgba(0,242,255,0.12);">
+      <div style="padding:18px 22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <div>
+          <div style="font-size:9px;letter-spacing:.2em;color:rgba(0,242,255,0.45);font-family:'JetBrains Mono',monospace;margin-bottom:3px;">COX AUTOMOTIVE · GLOBAL PRESENCE</div>
+          <div style="font-size:14px;font-weight:600;color:#e0f7ff;font-family:'JetBrains Mono',monospace;letter-spacing:.04em;">Operations Network</div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:center;">
+          <span style="display:flex;align-items:center;gap:5px;font-size:10px;color:rgba(0,242,255,0.55);font-family:'JetBrains Mono',monospace;">
+            <span style="width:6px;height:6px;border-radius:50%;background:#ff9050;display:inline-block;"></span>HQ · Atlanta
+          </span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:10px;color:rgba(0,242,255,0.55);font-family:'JetBrains Mono',monospace;">
+            <span style="width:6px;height:6px;border-radius:50%;background:#00f2ff;display:inline-block;"></span>Active markets
+          </span>
+        </div>
+      </div>
+      <div id="map" style="width:100%;"></div>
+    </div>
+  </div>
 </div>
 
-</section>
-<!-- CONTACT -->
-<section class="section" id="contact">
-<div class="section__head">
-<h2>Contact</h2>
-<p>Let’s connect — I respond quickly and communicate clearly.</p>
-</div>
-<div class="grid2 grid2--single">
-<article class="card glass">
-<h3>Details</h3>
-<div class="contactList">
-<a class="contactItem" href="mailto:eduardo12vargas11@gmail.com">
-<span class="k">Email</span><span class="v">eduardo12vargas11@gmail.com</span>
-</a>
+<div class="div"></div>
 
+<div class="wrap" id="about">
+  <div class="rv"><div class="sec-eyebrow">Profile</div><h2 class="sec-title">Built for<br><em>real security work</em></h2><p class="sec-sub">Protecting the platforms powering some of the <strong>biggest brands in the automotive industry</strong> — across UK, Europe and alongside global teams in the US.</p></div>
+  <div class="about-tiles rv">
+    <div class="about-tile"><div class="tile-ico">🛡️</div><div class="tile-label">Mission</div><div class="tile-h">Security First</div><p class="tile-p">Cyber Security Analyst at <strong>Cox Automotive Europe</strong>, protecting platforms across UK, Europe and the US.</p></div>
+    <div class="about-tile"><div class="tile-ico">🔍</div><div class="tile-label">Approach</div><div class="tile-h">Signal Over Noise</div><p class="tile-p">Prioritising <strong>actionable findings</strong> — severity, exposure, exploitability and business impact.</p></div>
+    <div class="about-tile"><div class="tile-ico">🌐</div><div class="tile-label">Background</div><div class="tile-h">Multilingual Pro</div><p class="tile-p">Higher Education in <strong>Systems Analysis & Development</strong>. English & Portuguese. Regulated UK environments.</p></div>
+  </div>
+</div>
 
-<div class="contactItem">
-<span class="k">Location</span><span class="v">United Kingdom</span>
-</div>
-</div>
-</article>
+<div class="div"></div>
 
+<div class="wrap" id="role">
+  <div class="rv"><div class="sec-eyebrow">Employment</div><h2 class="sec-title">Current <em>Position</em></h2></div>
+  <div class="role-card rv">
+    <div class="role-top">
+      <div><div class="role-title-big">Cyber Security Analyst</div><div class="role-co"><a href="https://www.coxautoinc.eu/" target="_blank">↗ Cox Automotive Europe</a><span>· UK / Europe</span></div></div>
+      <div class="role-live"><div class="ldot"></div>CURRENTLY ACTIVE</div>
+    </div>
+    <p class="role-desc">Member of the Cox Automotive Europe <strong>Information Security Team</strong> — working across cloud, networks, applications and security platforms in the UK, Europe and alongside global security teams in the US.</p>
+    <div class="tasks">
+      <div class="task"><span class="ti">⚡</span><div class="task-text"><span class="task-title">EDR & CSPM Tooling</span><span class="task-sub">Endpoint & cloud security</span></div></div>
+      <div class="task"><span class="ti">🔬</span><div class="task-text"><span class="task-title">Vulnerability Management</span><span class="task-sub">Assessment & triage</span></div></div>
+      <div class="task"><span class="ti">🎯</span><div class="task-text"><span class="task-title">Penetration Testing</span><span class="task-sub">Coordination & review</span></div></div>
+      <div class="task"><span class="ti">🚨</span><div class="task-text"><span class="task-title">Alert Review</span><span class="task-sub">Threat intelligence</span></div></div>
+      <div class="task"><span class="ti">🔐</span><div class="task-text"><span class="task-title">App Security</span><span class="task-sub">SAST / DAST testing</span></div></div>
+      <div class="task"><span class="ti">🛟</span><div class="task-text"><span class="task-title">Incident Response</span><span class="task-sub">Threat discovery</span></div></div>
+      <div class="task"><span class="ti">📋</span><div class="task-text"><span class="task-title">Security Reporting</span><span class="task-sub">Docs & process guides</span></div></div>
+      <div class="task"><span class="ti">🌍</span><div class="task-text"><span class="task-title">Global Collaboration</span><span class="task-sub">EU / US security teams</span></div></div>
+    </div>
+  </div>
 </div>
-</section>
-<footer class="footer">
-<div class="footer__inner">
-<span>© <span id="year"></span> Eduardo Vargas</span>
-<span class="sep">•</span>
-<span class="mono">Built with HTML + CSS + JS</span>
+
+<div class="div"></div>
+
+<div class="wrap" id="certifications">
+  <div class="rv"><div class="sec-eyebrow">Credentials</div><h2 class="sec-title">Certifications</h2></div>
+  <div class="certs">
+    <a href="https://www.credly.com/badges/c6db913d-5af9-4242-bd12-3f7e554c4a3e/linked_in_profile" target="_blank" class="cert rv">
+      <div class="cert-top"><img src="https://images.credly.com/size/340x340/images/74790a75-8451-400a-8536-92d792c5184a/CompTIA_Security_2Bce.png" alt="CompTIA" class="cert-badge"><div class="cert-verify">VERIFY ↗</div></div>
+      <div class="cert-iss">COMPTIA</div><div class="cert-name">Security+ (SY0-701)</div>
+      <div class="chips"><span class="chip">Security Concepts</span><span class="chip">Threats & Mitigations</span><span class="chip">Architecture</span><span class="chip">SecOps</span></div>
+    </a>
+    <a href="https://www.credly.com/badges/142290f2-ec30-4bf5-8bb7-b5baf2ad5939/public_url" target="_blank" class="cert rv" style="transition-delay:.08s;">
+      <div class="cert-top"><img src="https://images.credly.com/size/340x340/images/0bf0f2da-a699-4c82-82e2-56dcf1f2e1c7/image.png" alt="Google" class="cert-badge"><div class="cert-verify">VERIFY ↗</div></div>
+      <div class="cert-iss">GOOGLE</div><div class="cert-name">Cybersecurity Professional Certificate</div>
+      <div class="chips"><span class="chip">Vulnerability Scans</span><span class="chip">Alert Triage</span><span class="chip">SIEM</span><span class="chip">Incident Response</span></div>
+    </a>
+  </div>
 </div>
-</footer>
-</main>
-<script src="script.js"></script>
+
+<div class="div"></div>
+
+<div class="wrap" id="skills">
+  <div class="rv"><div class="sec-eyebrow">Arsenal</div><h2 class="sec-title">Technical <em>Skills</em></h2></div>
+  <div class="skills-grid">
+    <div class="sk-col rv"><div class="sk-title">SECURITY OPS</div><div class="sk-list">
+      <div class="ski hi"><div class="skd"></div>Security Operations</div>
+      <div class="ski hi"><div class="skd"></div>Vulnerability Management</div>
+      <div class="ski hi"><div class="skd"></div>Penetration Testing</div>
+      <div class="ski hi"><div class="skd"></div>Alert Triage</div>
+      <div class="ski"><div class="skd"></div>Incident Response</div>
+      <div class="ski"><div class="skd"></div>Threat Intelligence</div>
+      <div class="ski"><div class="skd"></div>CVSS Scoring</div>
+    </div></div>
+    <div class="sk-col rv" style="transition-delay:.08s;"><div class="sk-title">FRAMEWORKS</div><div class="sk-list">
+      <div class="ski hi"><div class="skd"></div>ISO 27001</div>
+      <div class="ski hi"><div class="skd"></div>NIST CSF</div>
+      <div class="ski hi"><div class="skd"></div>EDR / CSPM</div>
+      <div class="ski"><div class="skd"></div>SIEM</div>
+      <div class="ski"><div class="skd"></div>SAST / DAST</div>
+      <div class="ski"><div class="skd"></div>SOC Fundamentals</div>
+      <div class="ski"><div class="skd"></div>Cyber Essentials</div>
+    </div></div>
+    <div class="sk-col rv" style="transition-delay:.14s;"><div class="sk-title">INFRASTRUCTURE</div><div class="sk-list">
+      <div class="ski hi"><div class="skd"></div>Cloud Security</div>
+      <div class="ski hi"><div class="skd"></div>Firewalls & VPN</div>
+      <div class="ski hi"><div class="skd"></div>TCP/IP · DNS · HTTP</div>
+      <div class="ski"><div class="skd"></div>Windows Hardening</div>
+      <div class="ski"><div class="skd"></div>Linux</div>
+      <div class="ski"><div class="skd"></div>Identity & Access</div>
+      <div class="ski"><div class="skd"></div>MFA & IAM</div>
+    </div></div>
+    <div class="sk-col rv" style="transition-delay:.2s;"><div class="sk-title">TOOLING</div><div class="sk-list">
+      <div class="ski hi"><div class="skd"></div>Wireshark</div>
+      <div class="ski"><div class="skd"></div>Python Automation</div>
+      <div class="ski"><div class="skd"></div>SQL for Analysis</div>
+      <div class="ski"><div class="skd"></div>Bash / Linux CLI</div>
+      <div class="ski"><div class="skd"></div>Log Analysis</div>
+      <div class="ski"><div class="skd"></div>Security Reporting</div>
+      <div class="ski"><div class="skd"></div>CVE Analysis</div>
+    </div></div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<div class="wrap" id="contact">
+  <div class="rv"><div class="sec-eyebrow">Let's Connect</div><h2 class="sec-title">Get in <em>Touch</em></h2></div>
+  <div class="contact-grid">
+    <a href="mailto:eduardo12vargas10@gmail.com" class="ccard rv"><div class="cico">✉</div><div><div class="clbl">EMAIL</div><div class="cval">eduardo12vargas10@gmail.com</div></div></a>
+    <a href="https://evargas01.github.io" target="_blank" class="ccard rv" style="transition-delay:.08s;"><div class="cico">&lt;/&gt;</div><div><div class="clbl">GITHUB</div><div class="cval">evargas01.github.io</div></div></a>
+    <div class="ccard rv" style="transition-delay:.14s;"><div class="cico">📍</div><div><div class="clbl">LOCATION</div><div class="cval">United Kingdom</div></div></div>
+    <div class="ccard rv" style="transition-delay:.2s;"><div class="cico">🌐</div><div><div class="clbl">LANGUAGES</div><div class="cval">English · Portuguese</div></div></div>
+  </div>
+</div>
+
+<footer>© 2026 <span>Eduardo Vargas</span> · Cyber Security Analyst · Cox Automotive Europe</footer>
+
+<!-- MATRIX RAIN — plain script, no modules -->
+<script>
+(()=>{
+  const canvas=document.getElementById("matrix");
+  const ctx=canvas.getContext("2d",{alpha:true});
+  const glyphs=["0","1","0","1","0","1","C","V","E","S","O","C","S","I","E","M","N","I","S","T","I","S","O","H","T","T","P","D","N","S","T","C","P","I","P","V","P","N","{","}","[","]","<",">","/","\\",";","$","=","#","*","@","+","-"];
+  function resize(){
+    const dpr=Math.max(1,Math.min(2,window.devicePixelRatio||1));
+    canvas.width=Math.floor(window.innerWidth*dpr);
+    canvas.height=Math.floor(window.innerHeight*dpr);
+    canvas.style.width=window.innerWidth+"px";
+    canvas.style.height=window.innerHeight+"px";
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    setupColumns();
+  }
+  let fontSize=16,columns=[];
+  function setupColumns(){
+    fontSize=window.innerWidth<520?14:16;
+    const colCount=Math.floor(window.innerWidth/fontSize);
+    columns=new Array(colCount).fill(0).map(()=>({y:Math.random()*window.innerHeight,speed:0.65+Math.random()*1.25}));
+  }
+  function draw(){
+    ctx.fillStyle="rgba(0,0,0,0.12)";
+    ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+    for(let i=0;i<columns.length;i++){
+      const x=i*fontSize,col=columns[i];
+      const ch=glyphs[Math.floor(Math.random()*glyphs.length)];
+      ctx.font=`${fontSize}px JetBrains Mono,ui-monospace,monospace`;
+      ctx.fillStyle="rgba(0,242,255,0.95)";
+      ctx.shadowColor="rgba(0,242,255,0.28)";
+      ctx.shadowBlur=12;
+      ctx.fillText(ch,x,col.y);
+      ctx.shadowBlur=0;
+      col.y+=fontSize*col.speed;
+      if(col.y>window.innerHeight+80&&Math.random()>0.975){col.y=-Math.random()*200;col.speed=0.65+Math.random()*1.25;}
+    }
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener("resize",resize,{passive:true});
+  resize();draw();
+})();
+
+// Scroll reveal
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('on');});},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+
+<!-- D3 WORLD MAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+(function(){
+  const mw = document.getElementById('mw');
+  const W = Math.max(mw.clientWidth || 900, 320);
+  const H = Math.round(W * 0.54);
+
+  const svg = d3.select('#map').append('svg')
+    .attr('viewBox', `0 0 ${W} ${H}`)
+    .attr('width','100%').style('display','block');
+
+  const defs = svg.append('defs');
+
+  // Glow filter
+  const f = defs.append('filter').attr('id','gl2').attr('x','-60%').attr('y','-60%').attr('width','220%').attr('height','220%');
+  f.append('feGaussianBlur').attr('stdDeviation','2.5').attr('result','b');
+  const fm = f.append('feMerge');
+  fm.append('feMergeNode').attr('in','b');
+  fm.append('feMergeNode').attr('in','SourceGraphic');
+
+  // Scanlines
+  const sp = defs.append('pattern').attr('id','sc2').attr('width',1).attr('height',4).attr('patternUnits','userSpaceOnUse');
+  sp.append('rect').attr('width',1).attr('height',1).attr('fill','rgba(0,242,255,0.022)');
+
+  // Vignette
+  const vg = defs.append('radialGradient').attr('id','vig2').attr('cx','50%').attr('cy','50%').attr('r','70%');
+  vg.append('stop').attr('offset','55%').attr('stop-color','transparent');
+  vg.append('stop').attr('offset','100%').attr('stop-color','#020c18').attr('stop-opacity','0.75');
+
+  // Confirmed Cox countries — numeric ISO
+  const coxIds = new Set([840,826,372,250,276,528,724,620,380,56,756,752,208,578,246,124,484,76,36,554]);
+
+  // Main world projection
+  const proj = d3.geoNaturalEarth1().scale(W/6.1).translate([W*0.48, H*0.54]);
+  const geoPath = d3.geoPath(proj);
+
+  // Cities: [label, lat, lon, isHQ, label-ox, label-oy, label-anchor]
+  const cities = [
+    ['ATLANTA',     33.75, -84.39, true,    8,  -8, 'start'],
+    ['LONDON',      51.50,  -0.12, false,  -7,  -8, 'end'  ],
+    ['LEEDS',       53.80,  -1.55, false,  -7,   5, 'end'  ],
+    ['PARIS',       48.85,   2.35, false,   7,  -8, 'start'],
+    ['AMSTERDAM',   52.37,   4.90, false,   7,   5, 'start'],
+    ['MADRID',      40.41,  -3.70, false,  -7,  -8, 'end'  ],
+    ['BERLIN',      52.52,  13.40, false,   7,   5, 'start'],
+    ['BRUSSELS',    50.85,   4.35, false,   7,  -8, 'start'],
+    ['LISBON',      38.72,  -9.13, false,  -7,   5, 'end'  ],
+    ['TORONTO',     43.65, -79.38, false,  -7,  -8, 'end'  ],
+    ['SÃO PAULO',  -23.55, -46.63, false,   7,   5, 'start'],
+    ['SYDNEY',     -33.86, 151.21, false,   7,  -8, 'start'],
+    ['AUCKLAND',   -36.86, 174.76, false,   7,   5, 'start'],
+    ['MEXICO CITY', 19.43, -99.13, false,  -7,   5, 'end'  ],
+  ];
+
+  d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(world => {
+    const countries = topojson.feature(world, world.objects.countries);
+
+    svg.append('rect').attr('width',W).attr('height',H).attr('fill','#020c18');
+
+    // Globe sphere
+    svg.append('path').datum({type:'Sphere'}).attr('d',geoPath)
+      .attr('fill','none').attr('stroke','rgba(0,242,255,0.06)').attr('stroke-width',0.8);
+
+    // Graticule
+    svg.append('path').datum(d3.geoGraticule()()).attr('d',geoPath)
+      .attr('fill','none').attr('stroke','rgba(0,100,160,0.1)').attr('stroke-width',0.3);
+
+    // Countries — main map
+    svg.selectAll('.c').data(countries.features).join('path').attr('class','c')
+      .attr('d', geoPath)
+      .attr('fill', d => coxIds.has(+d.id) ? 'rgba(0,160,220,0.22)' : 'rgba(0,40,80,0.35)')
+      .attr('stroke', d => coxIds.has(+d.id) ? 'rgba(0,242,255,0.45)' : 'rgba(0,80,130,0.18)')
+      .attr('stroke-width', d => coxIds.has(+d.id) ? 0.65 : 0.22);
+
+    svg.append('rect').attr('width',W).attr('height',H).attr('fill','url(#sc2)');
+    svg.append('rect').attr('width',W).attr('height',H).attr('fill','url(#vig2)');
+
+    // Atlanta hub + arcs
+    const hub = proj([-84.39, 33.75]);
+    const arcG = svg.append('g');
+
+    cities.filter(c => !c[3]).forEach((c, i) => {
+      const dest = proj([c[2], c[1]]);
+      if (!dest || !hub) return;
+      const mx = (hub[0]+dest[0])/2;
+      const my = (hub[1]+dest[1])/2 - Math.abs(hub[0]-dest[0])*0.22;
+      const dPath = `M${hub[0]},${hub[1]} Q${mx},${my} ${dest[0]},${dest[1]}`;
+
+      arcG.append('path').attr('d',dPath).attr('fill','none')
+        .attr('stroke','rgba(0,242,255,0.1)').attr('stroke-width',0.6).attr('stroke-dasharray','2,5');
+
+      const arc = arcG.append('path').attr('d',dPath).attr('fill','none')
+        .attr('stroke','rgba(0,242,255,0.65)').attr('stroke-width',1.0).attr('filter','url(#gl2)');
+      const len = arc.node().getTotalLength();
+      arc.attr('stroke-dasharray',len).attr('stroke-dashoffset',len)
+        .transition().delay(400+i*180).duration(1000).ease(d3.easeQuadOut)
+        .attr('stroke-dashoffset',0);
+
+      const dot = arcG.append('circle').attr('r',2).attr('fill','#fff')
+        .attr('filter','url(#gl2)').attr('opacity',0);
+      function loopDot(dl){ dot.attr('opacity',0.9).transition().delay(dl).duration(2200).ease(d3.easeLinear)
+        .attrTween('transform',()=>t=>{const pt=arc.node().getPointAtLength(t*len);return `translate(${pt.x},${pt.y})`;})
+        .on('end',()=>loopDot(400+Math.random()*1000));}
+      setTimeout(()=>loopDot(0), 1500+i*180);
+    });
+
+    // Main map city dots (all cities)
+    cities.forEach(c => {
+      const pt = proj([c[2], c[1]]);
+      if (!pt) return;
+      const isHQ = c[3];
+      const col = isHQ ? '#ff9050' : '#00f2ff';
+      const [ox,oy,anc] = [c[4],c[5],c[6]];
+      const ring = svg.append('circle').attr('cx',pt[0]).attr('cy',pt[1])
+        .attr('r', isHQ?5:3.5).attr('fill','none')
+        .attr('stroke',col).attr('stroke-width',0.7).attr('opacity',0.5);
+      (function pulse(){ring.attr('r',isHQ?5:3).attr('opacity',0.6).transition().duration(2000).ease(d3.easeQuadOut)
+        .attr('r',isHQ?14:8).attr('opacity',0).on('end',pulse);})();
+      svg.append('circle').attr('cx',pt[0]).attr('cy',pt[1]).attr('r',isHQ?4:2.5).attr('fill',col).attr('filter','url(#gl2)');
+      svg.append('circle').attr('cx',pt[0]).attr('cy',pt[1]).attr('r',isHQ?1.8:1.1).attr('fill','#fff');
+      svg.append('text').attr('x',pt[0]+ox).attr('y',pt[1]+oy)
+        .attr('text-anchor',anc).attr('font-size',isHQ?'8px':'7px')
+        .attr('font-family','JetBrains Mono,monospace').attr('letter-spacing','0.07em')
+        .attr('fill',isHQ?'#ffb47a':'rgba(0,230,255,0.7)').attr('font-weight',isHQ?'700':'400')
+        .text(c[0]);
+    });
+
+  });
+})();
+</script>
+
 </body>
 </html>
